@@ -11,6 +11,11 @@ import { Home } from '../pages/Home'
 import { NotFound } from '../pages/NotFound'
 import { SearchPage } from '../pages/SearchPage'
 import { ArticlesPage } from '../pages/ArticlesPage'
+import { AdminLoginPage } from '../pages/admin/AdminLoginPage'
+import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage'
+import { AdminPostsPage } from '../pages/admin/AdminPostsPage'
+import { AdminEnquiriesPage } from '../pages/admin/AdminEnquiriesPage'
+import { AdminEnquiryDetailPage } from '../pages/admin/AdminEnquiryDetailPage'
 
 export function AppRoutes() {
   return (
@@ -26,6 +31,13 @@ export function AppRoutes() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/create-post" element={<CreatePostPage />} />
+      {/* Admin */}
+      <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+      <Route path="/admin/login" element={<AdminLoginPage />} />
+      <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+      <Route path="/admin/posts" element={<AdminPostsPage />} />
+      <Route path="/admin/enquiries" element={<AdminEnquiriesPage />} />
+      <Route path="/admin/enquiries/:id" element={<AdminEnquiryDetailPage />} />
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>
