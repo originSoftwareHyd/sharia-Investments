@@ -1,7 +1,7 @@
-import { ImagePlus, Save, Send, X } from 'lucide-react'
+import { Save, Send, X } from 'lucide-react'
 import { Button } from '../common/Button'
-import { categories } from '../../data/categories'
 import { PostPreview } from './PostPreview'
+import { CloudinaryUploader } from './CloudinaryUploader'
 
 export function PostForm({ value, onChange, onSaveDraft, onPublish, onCancel, submitting, categories }) {
   const update = (field, next) => onChange({ ...value, [field]: next })
@@ -22,8 +22,11 @@ export function PostForm({ value, onChange, onSaveDraft, onPublish, onCancel, su
 
         <div className="form-section">
           <span className="eyebrow">Featured image</span>
-          <label className="field"><span>Image URL</span><div className="input-with-icon"><ImagePlus size={17} /><input value={value.image.src} onChange={(e) => update('image', { ...value.image, src: e.target.value })} placeholder="https://…" inputMode="url" /></div></label>
-          <label className="field"><span>Alt text</span><input value={value.image.alt} onChange={(e) => update('image', { ...value.image, alt: e.target.value })} placeholder="Describe the image for accessibility" maxLength={180} /></label>
+          <CloudinaryUploader
+            value={value.image.src}
+            alt={value.image.alt}
+            onChange={(img) => update('image', img)}
+          />
         </div>
 
         <div className="form-section">

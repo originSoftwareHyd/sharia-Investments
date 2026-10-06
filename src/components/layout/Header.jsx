@@ -37,7 +37,6 @@ export function Header() {
 
           <div className="header-actions">
             <Link className="icon-button header-search" to="/search" aria-label="Search the archive"><Search size={18} /></Link>
-            <Link className="header-post" to="/create-post">+ Post New Article</Link>
             <button className="icon-button mobile-toggle" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? 'Close navigation' : 'Open navigation'}>
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>

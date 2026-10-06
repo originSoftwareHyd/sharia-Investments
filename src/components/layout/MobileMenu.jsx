@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { siteData } from '../../data/siteData'
 
@@ -21,7 +20,6 @@ export function MobileMenu({ open, onClose }) {
         <nav className="mobile-menu__nav" aria-label="Mobile primary navigation">
           {siteData.navigation.map((item, index) => <Link key={item.to} ref={index === 0 ? firstLinkRef : undefined} to={item.to} onClick={onClose}>{item.label}</Link>)}
           <Link to="/search" onClick={onClose}>Search</Link>
-          <Link className="mobile-menu__post" to="/create-post" onClick={onClose}>+ Post New Article <ArrowUpRight size={16} /></Link>
         </nav>
       </div>
     </div>
